@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lin.dao.SearchRecordsMapper" >
+  <resultMap id="BaseResultMap" type="com.lin.model.SearchRecords" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+  </resultMap>
+
+    <select id="getHotWords" resultType="string">
+      select content
+      from search_records
+      group by content
+      order by count(1) desc
+    </select>
+
+</mapper>
