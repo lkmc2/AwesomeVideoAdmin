@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <!--全局样式-->
-<head th:include="/common/commonHeaderCSS::loadCommonHeaderCSS('管理页面')">
+<head th:include="/common/commonHeaderCSS::loadCommonHeaderCSS('倾心短视频后台管理')">
+    <style>
+        /* 设置jqgrid列中文字内容垂直居中 jqgrid 单元格自动换行 */
+        .ui-jqgrid tr.jqgrow td {
+            vertical-align:middle;
+            white-space: normal !important;
+            height: auto;
+            word-break: break-all;
+        }
+    </style>
 </head>
 <body>
     <span th:text="${name}"></span>
     全都是假象
-    haha
+    33333333333333333
 
     <!--全局JS-->
     <div th:replace="/common/commonFooterJS::loadFooterJS"></div>

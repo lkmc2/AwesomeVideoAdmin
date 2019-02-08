@@ -130,7 +130,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <fork>true</fork><!-- fork:如果没有该配置，这个devtools不会起作用，即应用不会restart -->
+                    <fork>true</fork> <!-- 如果没有该配置，devtools不会生效 -->
                 </configuration>
             </plugin>
         </plugins>
