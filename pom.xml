@@ -11,7 +11,7 @@
     <groupId>com.lin</groupId>
     <artifactId>awesome-video-admin</artifactId>
     <version>1.0.1</version>
-    <name>awesome-video-admin</name>
+    <name>倾心短视频管理员后台</name>
     <description>Awesome Video Admin Background Managerment for Spring Boot</description>
 
     <properties>
