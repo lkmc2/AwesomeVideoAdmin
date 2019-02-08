@@ -81,7 +81,7 @@
         <dependency>
             <groupId>tk.mybatis</groupId>
             <artifactId>mapper-spring-boot-starter</artifactId>
-            <version>1.2.4</version>
+            <version>2.1.5</version>
         </dependency>
 
         <!-- Druid连接池 -->
@@ -129,9 +129,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <fork>true</fork> <!-- 如果没有该配置，devtools不会生效 -->
-                </configuration>
             </plugin>
         </plugins>
     </build>
