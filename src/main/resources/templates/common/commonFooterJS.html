@@ -1,10 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>共用Footer的js文件</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <body>
+
+<!--公用Footer的js文件-->
+<div th:fragment="loadFooterJS">
+    <!--[if lt IE 9]>
+    <script src="../../static/global/plugins/respond.min.js" th:src="@{/static/global/plugins/respond.min.js}"></script>
+    <script src="../../static/global/plugins/excanvas.min.js" th:src="@{/static/global/plugins/excanvas.min.js}"></script>
+    <script src="../../static/global/plugins/ie8.fix.min.js" th:src="@{/static/global/plugins/ie8.fix.min.js}"></script>
+    <![endif]-->
+
+    <!-- 上下文对象路径 -->
+    <input type="hidden" id="hdnContextPath" name="hdnContextPath" value="${#httpServletRequest.getContextPath()}"/>
+    <input type="hidden" id="apiServer" name="apiServer" value="http://192.168.1.2:8081"/>
+    <input type="hidden" id="bgmServer" name="bgmServer" value="http://192.168.1.2:8080/mvc"/>
+    <!-- <input type="hidden" id="apiServer" name="apiServer" value="http://imoocdsp.com/imooc-video-mini-api"/> -->
+    <!-- <input type="hidden" id="bgmServer" name="bgmServer" value="http://118.24.157.179/mvc"/> -->
+
+    <!-- BEGIN CORE PLUGINS -->
+    <script src="../../static/global/plugins/jquery.min.js" th:src="@{/static/global/plugins/jquery.min.js}" type="text/javascript"></script>
+    <script src="../../static/global/plugins/bootstrap/js/bootstrap.min.js" th:src="@{/static/global/plugins/bootstrap/js/bootstrap.min.js}" type="text/javascript"></script>
+    <script src="../../static/global/plugins/js.cookie.min.js" th:src="@{/static/global/plugins/js.cookie.min.js}" type="text/javascript"></script>
+
+    <script src="../../static/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" th:src="@{/static/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js}" type="text/javascript"></script>
+
+    <script src="../../static/global/plugins/morris/morris.min.js" th:src="@{/static/global/plugins/morris/morris.min.js}" type="text/javascript"></script>
+    <script src="../../static/global/plugins/jquery-validation/js/jquery.validate.min.js" th:src="@{/static/global/plugins/jquery-validation/js/jquery.validate.min.js}" type="text/javascript"></script>
+    <script src="../../static/global/plugins/jquery-validation/js/additional-methods.min.js" th:src="@{/static/global/plugins/jquery-validation/js/additional-methods.min.js}" type="text/javascript"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+
+    <!-- BEGIN THEME GLOBAL SCRIPTS -->
+    <script src="../../static/global/scripts/app.js" th:src="@{/static/global/scripts/app.js}" type="text/javascript"></script>
+    <!-- END THEME GLOBAL SCRIPTS -->
+
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    <script src="../../static/global/plugins/jquery.form.js" th:src="@{/static/global/plugins/jquery.form.js}" type="text/javascript"></script>
+    <script src="../../static/pages/scripts/form-validation.min.js" th:src="@{/static/pages/scripts/form-validation.min.js}" type="text/javascript"></script>
+    <script src="../../static/global/plugins/bootstrap-sweetalert/sweetalert.js" th:src="@{/static/global/plugins/bootstrap-sweetalert/sweetalert.js}" type="text/javascript"></script>
+
+    <script src="../../static/global/plugins/Guriddo_jqGrid_JS_5.2.0/js/i18n/grid.locale-cn.js" th:src="@{/static/global/plugins/Guriddo_jqGrid_JS_5.2.0/js/i18n/grid.locale-cn.js}" type="text/javascript"></script>
+    <script src="../../static/global/plugins/Guriddo_jqGrid_JS_5.2.0/js/jquery.jqGrid.min.js" th:src="@{/static/global/plugins/Guriddo_jqGrid_JS_5.2.0/js/jquery.jqGrid.min.js}" type="text/javascript"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    <script src="../../static/pages/scripts/dashboard.min.js" th:src="@{/static/pages/scripts/dashboard.min.js}" type="text/javascript"></script>
+    <script src="../../static/pages/scripts/ui-sweetalert.js" th:src="@{/static/pages/scripts/ui-sweetalert.js}" type="text/javascript"></script>
+    <script src="../../static/pages/scripts/ui-blockui.min.js" th:src="@{/static/pages/scripts/ui-blockui.min.js}" type="text/javascript"></script>
+
+    <script src="../../static/global/plugins/icheck/icheck.js" th:src="@{/static/global/plugins/icheck/icheck.js}" type="text/javascript"></script>
+    <script src="../../static/pages/scripts/form-icheck.js" th:src="@{/static/pages/scripts/form-icheck.js}" type="text/javascript"></script>
+
+    <script src="../../static/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" th:src="@{/static/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js}" type="text/javascript"></script>
+    <script src="../../static/global/plugins/bootstrap-modal/js/bootstrap-modal.js" th:src="@{/static/global/plugins/bootstrap-modal/js/bootstrap-modal.js}" type="text/javascript"></script>
+
+    <script src="../../static/global/plugins/file-uploader/js/vendor/jquery.ui.widget.js" th:src="@{/static/global/plugins/file-uploader/js/vendor/jquery.ui.widget.js}"></script>
+    <script src="../../static/global/plugins/file-uploader/js/jquery.fileupload.js" th:src="@{/static/global/plugins/file-uploader/js/jquery.fileupload.js}"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+
+    <!-- BEGIN 自己写的页面JS -->
+    <script src="../../static/pages/js/commonJSFunction.js" th:src="@{/static/pages/js/commonJSFunction.js}" type="text/javascript"></script>
+    <!-- END 自己写的页面JS -->
+
+    <!-- BEGIN THEME LAYOUT SCRIPTS -->
+    <script src="../../static/layouts/layout/scripts/layout.js" th:src="@{/static/layouts/layout/scripts/layout.js}" type="text/javascript"></script>
+    <script src="../../static/layouts/layout/scripts/demo.js" th:src="@{/static/layouts/layout/scripts/demo.js}" type="text/javascript"></script>
+    <script src="../../static/layouts/global/scripts/quick-sidebar.js" th:src="@{/static/layouts/global/scripts/quick-sidebar.js}" type="text/javascript"></script>
+    <script src="../../static/layouts/global/scripts/quick-nav.js" th:src="@{/static/layouts/global/scripts/quick-nav.js}" type="text/javascript"></script>
+    <!-- END THEME LAYOUT SCRIPTS -->
+</div>
 
 </body>
 </html>

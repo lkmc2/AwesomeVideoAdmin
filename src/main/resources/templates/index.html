@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:include="/common/commonHeaderCSS::commonHeaderCSS('管理页面')">
+<!--全局样式-->
+<head th:include="/common/commonHeaderCSS::loadCommonHeaderCSS('管理页面')">
 </head>
 <body>
     <span th:text="${name}"></span>
     全都是假象
     haha
-    ufmedbbuvidk
+
+    <!--全局JS-->
+    <div th:replace="/common/commonFooterJS::loadFooterJS"></div>
 </body>
 </html>
