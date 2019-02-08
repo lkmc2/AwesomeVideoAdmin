@@ -53,6 +53,16 @@
     <link href="../../static/layouts/layout/css/themes/darkblue.css" th:href="@{/static/layouts/layout/css/themes/darkblue.css}" rel="stylesheet" type="text/css" id="style_color" />
     <link href="../../static/layouts/layout/css/custom.css" th:href="@{/static/layouts/layout/css/custom.css}" rel="stylesheet" type="text/css" />
     <!-- END THEME LAYOUT STYLES -->
+
+    <style>
+        /* 设置jqgrid列中文字内容垂直居中 jqgrid 单元格自动换行 */
+        .ui-jqgrid tr.jqgrow td {
+            vertical-align:middle;
+            white-space: normal !important;
+            height: auto;
+            word-break: break-all;
+        }
+    </style>
 </head>
 
 </html>
