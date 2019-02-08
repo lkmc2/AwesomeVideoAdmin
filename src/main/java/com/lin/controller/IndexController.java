@@ -14,7 +14,8 @@ public class IndexController {
 
     @GetMapping("showInfo")
     public String showInfo(Model model) {
-        model.addAttribute("name", "jack");
+        model.addAttribute("name", "andy");
+        System.out.println("haha");
         return "index";
     }
 
