@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class IndexController {
 
-    @GetMapping("showInfo")
+    @GetMapping("index")
     public String showInfo(Model model) {
         model.addAttribute("name", "andy");
         System.out.println("1111111111111");
