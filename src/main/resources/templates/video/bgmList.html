@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="bgmList">
+    <script src="/static/pages/js/bgmList.js"></script>
+
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <span>首页</span>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <span>bgm管理</span>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <span>背景音乐列表展示</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- END PAGE HEADER-->
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="bgmList_wrapper">
+                <table id="bgmList"></table>
+                <div id="bgmListPager"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
