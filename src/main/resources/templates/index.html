@@ -7,6 +7,16 @@
     <div class="page-wrapper">
         <!--引入header页面-->
         <div th:include="/common/header::header"></div>
+
+        <!-- BEGIN HEADER & CONTENT DIVIDER -->
+        <div class="clearfix"></div>
+        <!-- END HEADER & CONTENT DIVIDER -->
+
+        <div class="page-container">
+            <!-- 菜单 start -->
+            <div th:include="/common/menu::menu"></div>
+            <!-- 菜单 end -->
+        </div>
     </div>
 
     <!--全局JS-->
