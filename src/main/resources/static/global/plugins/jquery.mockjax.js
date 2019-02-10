@@ -424,7 +424,7 @@
 		requestSettings = jQuery.extend(true, {}, jQuery.ajaxSettings, origSettings);
 
 		// Iterate over our mock handlers (in registration order) until we find
-		// one that is willing to intercept the request
+		// one that is willing to interceptor the request
 		for(var k = 0; k < mockHandlers.length; k++) {
 			if ( !mockHandlers[k] ) {
 				continue;
