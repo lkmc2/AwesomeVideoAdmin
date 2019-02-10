@@ -23,7 +23,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         //如果session中没有user，表示没登陆
         if (session.getAttribute("user") == null){
             // 重定向到登录页
-            response.sendRedirect(request.getContextPath() + "/users/login");
+            response.sendRedirect(request.getContextPath() + "/user/login");
             return false;
         }
         //如果session里有user，表示该用户已经登陆，放行，用户即可继续调用自己需要的接口
