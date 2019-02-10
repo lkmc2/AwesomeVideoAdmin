@@ -43,6 +43,7 @@ var Login = function() {
 
                 var loginForm = $('.login-form');
                 var hdnContextPath = $("#hdnContextPath").val();
+
                 loginForm.ajaxSubmit({
                     dataType: "json",
                     type: "post", // 提交方式 get/post
@@ -51,7 +52,7 @@ var Login = function() {
                     success: function (data) {
                         // 登录成功或者失败的提示信息
                         if (data.status === 200 && data.msg === "OK") {
-                            window.location.href = hdnContextPath + "/center";
+                            window.location.href = hdnContextPath + "/index";
                         } else {
 //                        	SweetAlert.error(data.msg);
                             alert(data.msg);

@@ -24,8 +24,6 @@
     <link th:href="@{/static/pages/css/login-2.min.css}" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL STYLES -->
 
-    <link rel="shortcut icon" href="/portal/image/itzixi_favicon.ico" type="image/x-icon">
-
     <style type="text/css">
         .help-block {
             display: block;
@@ -93,7 +91,7 @@
         <!-- END REGISTRATION FORM -->
     </div>
 
-    <input type="hidden" id="hdnContextPath" name="hdnContextPath" value="<%=request.getContextPath() %>"/>
+    <input type="hidden" id="hdnContextPath" name="hdnContextPath" th:value="${#httpServletRequest.getContextPath()}"/>
 
     <!--[if lt IE 9]>
     <script src="../assets/global/plugins/respond.min.js"></script>
