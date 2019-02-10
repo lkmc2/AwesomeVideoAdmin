@@ -1,9 +1,9 @@
 var Login = function() {
 
 	// 构建登录对象
-    var handleLogin = function() {
+    var handleLogin = function () {
 
-    	// jquery-form-validate 前端的验证框架
+        // jquery-form-validate 前端的验证框架
         $('.login-form').validate({
             errorElement: 'span', //default input error message container
             errorClass: 'help-block', // default input error message class
@@ -26,43 +26,43 @@ var Login = function() {
                 }
             },
 
-            highlight: function(element) { // hightlight error inputs
+            highlight: function (element) { // hightlight error inputs
                 $(element).closest('.form-group').addClass('has-error'); // set error class to the control group
             },
 
-            success: function(label) {
+            success: function (label) {
                 label.closest('.form-group').removeClass('has-error');
                 label.remove();
             },
 
-            errorPlacement: function(error, element) {
+            errorPlacement: function (error, element) {
                 error.insertAfter(element.closest('#input-error'));
             },
 
-            submitHandler: function(form) {
-            	
-            	var loginForm = $('.login-form');
-            	var hdnContextPath = $("#hdnContextPath").val();
-            	loginForm.ajaxSubmit({
-            		dataType: "json",
+            submitHandler: function (form) {
+
+                var loginForm = $('.login-form');
+                var hdnContextPath = $("#hdnContextPath").val();
+                loginForm.ajaxSubmit({
+                    dataType: "json",
                     type: "post", // 提交方式 get/post
-                    url: hdnContextPath + '/users/login.action', // 需要提交的 url
+                    url: hdnContextPath + '/user/login', // 需要提交的 url
                     data: loginForm.serialize(),
-                    success: function(data) {
+                    success: function (data) {
                         // 登录成功或者失败的提示信息
-                        if (data.status == 200 && data.msg == "OK") {
-                        	window.location.href = hdnContextPath + "/center.action";
+                        if (data.status === 200 && data.msg === "OK") {
+                            window.location.href = hdnContextPath + "/center";
                         } else {
 //                        	SweetAlert.error(data.msg);
-                        	alert(data.msg);
+                            alert(data.msg);
                         }
                     }
                 });
-            	
+
             }
         });
 
-    }
+    };
     
     return {
         init: function() {

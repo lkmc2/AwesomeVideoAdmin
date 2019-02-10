@@ -21,7 +21,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         HttpSession session = request.getSession();
 
         //如果session中没有user，表示没登陆
-        if (session.getAttribute("user") == null){
+        if (session.getAttribute("sessionUser") == null){
             // 重定向到登录页
             response.sendRedirect(request.getContextPath() + "/user/login");
             return false;
