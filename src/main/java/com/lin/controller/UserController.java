@@ -46,4 +46,11 @@ public class UserController {
         return JsonResult.ok();
     }
 
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request, HttpServletResponse response) {
+        // 移除session中的用户信息，跳转到登录页
+        request.getSession().removeAttribute("sessionUser");
+        return "redirect:login";
+    }
+
 }
