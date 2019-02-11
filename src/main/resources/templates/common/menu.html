@@ -44,6 +44,22 @@
                     </ul>
                 </li>
 
+                <!-- 视频管理 start -->
+                <li class="nav-item ">
+                    <a href="javascript:;" class="nav-link nav-toggle">
+                        <i class="icon-user"></i>
+                        <span class="title">视频信息</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="nav-item ">
+                            <a th:href="${#httpServletRequest.getContextPath()} + '/video/showVideoList'" class="ajaxify nav-link ">
+                                <span class="title">视频列表</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                 <!-- 背景音乐 start -->
                 <li class="nav-item ">
                     <a href="javascript:;" class="nav-link nav-toggle">
@@ -76,22 +92,6 @@
                         <li class="nav-item ">
                             <a th:href="${#httpServletRequest.getContextPath()} + '/video/showReportList'" class="ajaxify nav-link ">
                                 <span class="title">举报列表</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <!-- 视频管理 start -->
-                <li class="nav-item ">
-                    <a href="javascript:;" class="nav-link nav-toggle">
-                        <i class="icon-user"></i>
-                        <span class="title">视频信息</span>
-                        <span class="arrow"></span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li class="nav-item ">
-                            <a th:href="${#httpServletRequest.getContextPath()} + '/video/showVideoList'" class="ajaxify nav-link ">
-                                <span class="title">视频列表</span>
                             </a>
                         </li>
                     </ul>
