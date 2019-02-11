@@ -11,11 +11,11 @@
     <![endif]-->
 
     <!-- 上下文对象路径 -->
-    <input type="hidden" id="hdnContextPath" name="hdnContextPath" value="${#httpServletRequest.getContextPath()}"/>
+    <input type="hidden" id="hdnContextPath" name="hdnContextPath" th:value="${#httpServletRequest.getContextPath()}"/>
     <input type="hidden" id="apiServer" name="apiServer" value="http://192.168.1.2:8081"/>
-    <input type="hidden" id="bgmServer" name="bgmServer" value="http://192.168.1.2:8080/mvc"/>
+    <input type="hidden" id="bgmServer" name="bgmServer" th:value="${#httpServletRequest.getContextPath()}"/>
     <!-- <input type="hidden" id="apiServer" name="apiServer" value="http://imoocdsp.com/imooc-video-mini-api"/> -->
-    <!-- <input type="hidden" id="bgmServer" name="bgmServer" value="http://118.24.157.179/mvc"/> -->
+     <!--<input type="hidden" id="bgmServer" name="bgmServer" value="http://118.24.157.179/mvc"/> -->
 
     <!-- BEGIN CORE PLUGINS -->
     <script src="../../static/global/plugins/jquery.min.js" th:src="@{/static/global/plugins/jquery.min.js}" type="text/javascript"></script>

@@ -65,7 +65,7 @@
                                         <div id="input-error3">
                                             <input type="hidden" id="path" name="path" class="form-control"/>
 
-                                            <input id="file" type="file" name="file" data-url="<%=request.getContextPath() %>/video/bgmUpload.action" accept=".mp3"/>
+                                            <input id="file" type="file" name="file" th:data-url="${#httpServletRequest.getContextPath()} + '/video/bgmUpload'" accept=".mp3"/>
 
                                             <div id="bgmContent"></div>
                                         </div>
@@ -99,8 +99,8 @@
             done: function(e, data) {
                 console.log(data);
 
-                if (data.result.status !== '200') {
-                    alert("长传失败...");
+                if (data.result.status !== 200) {
+                    alert("上传失败...");
                 } else {
                     var bgmServer = $("#bgmServer").val();
                     var url = bgmServer + data.result.data;
@@ -112,9 +112,10 @@
 
         var submitBgm = function () {
             $('#addBgmForm').ajaxSubmit({
-                url: $('#hdnContextPath').val() + '/video/addBgm.action',
+                url: $('#hdnContextPath').val() + '/video/addBgm',
                 type: 'POST',
                 success: function (data) {
+                    debugger;
                     if (data.status === 200 && data.msg === 'OK') {
                         alert('BGM添加成功...')
                     } else {
