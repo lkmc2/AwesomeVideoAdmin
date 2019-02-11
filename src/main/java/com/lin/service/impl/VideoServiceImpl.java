@@ -10,6 +10,7 @@ import com.lin.model.Bgm;
 import com.lin.model.UserReport;
 import com.lin.model.Video;
 import com.lin.model.vo.Reports;
+import com.lin.model.vo.VideoVo;
 import com.lin.service.VideoService;
 import com.lin.utils.PagedResult;
 import org.n3r.idworker.Sid;
@@ -104,6 +105,32 @@ public class VideoServiceImpl implements VideoService {
 
         // 根据id选择性更新视频状态
         videoMapper.updateByPrimaryKeySelective(video);
+    }
+
+    @Override
+    public PagedResult queryVideoList(Integer page, int pageSize) {
+        // 分页插件执行分页
+        PageHelper.startPage(page, pageSize);
+
+        // 分页查询视频列表
+        List<VideoVo> reportsList = userReportMapperCustom.selectAllVideo();
+
+        // 获取插件的分页信息
+        PageInfo<VideoVo> pageInfo = new PageInfo<>(reportsList);
+
+        // 创建自定义分页结果
+        PagedResult pagedResult = new PagedResult();
+        pagedResult.setTotal(pageInfo.getPages()); // 总页数
+        pagedResult.setRows(reportsList); // 每行的数据
+        pagedResult.setRecords(pageInfo.getTotal()); // 总记录数
+        pagedResult.setPage(page); // 当前页数
+        return pagedResult;
+    }
+
+    @Override
+    public void delVideo(String videoId) {
+        // 根据id删除视频
+        videoMapper.deleteByPrimaryKey(videoId);
     }
 
 }

@@ -19,14 +19,14 @@ var List = function () {
             colModel: [
                 {name: 'id', index: 'id', width: 30, sortable: false, hidden: false},
                 {
-                    name: 'faceImage', index: 'username', width: 50, sortable: false,
+                    name: 'faceImage', index: 'faceImage', width: 50, sortable: false,
                     formatter: function (cellvalue, options, rowObject) {
                         var src = apiServer + cellvalue;
                         var img = "<img src='" + src + "' width='120'/>";
                         return img;
                     }
                 },
-                {name: 'username', index: 'password', width: 30, sortable: false},
+                {name: 'username', index: 'username', width: 30, sortable: false},
                 {name: 'nickname', index: 'nickname', width: 30, sortable: false},
                 {name: 'fansCounts', index: 'age', width: 20, sortable: false},
                 {name: 'followCounts', index: 'sexValue', width: 20, sortable: false},

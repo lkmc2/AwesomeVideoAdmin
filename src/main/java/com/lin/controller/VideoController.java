@@ -33,6 +33,37 @@ public class VideoController {
     private VideoService videoService;
 
     /**
+     * 跳转到视频列表页面
+     * @return 视频列表页面路径
+     */
+    @GetMapping("/showVideoList")
+    public String showVideoList() {
+        return "video/videoList";
+    }
+
+    /**
+     * 分页查询视频列表
+     * @param page 当前页数
+     * @return 视频列表
+     */
+    @PostMapping("/videoList")
+    @ResponseBody
+    public PagedResult videoList(Integer page) {
+        return videoService.queryVideoList(page, 10);
+    }
+
+    /**
+     * 删除视频
+     * @return 视频id
+     */
+    @PostMapping("/deleteVideo")
+    @ResponseBody
+    public JsonResult deleteVideo(String videoId) {
+        videoService.delVideo(videoId);
+        return JsonResult.ok();
+    }
+
+    /**
      * 跳转到视频举报列表页面
      * @return 视频举报列表页面路径
      */

@@ -43,4 +43,18 @@ public interface VideoService {
      * @param status 视频状态
      */
     void updateVideoStatus(String videoId, Integer status);
+
+    /**
+     * 分页查询视频列表
+     * @param page 当前页数
+     * @param pageSize 每页条数
+     * @return 分页结果
+     */
+    PagedResult queryVideoList(Integer page, int pageSize);
+
+    /**
+     * 删除视频
+     * @param videoId 视频id
+     */
+    void delVideo(String videoId);
 }

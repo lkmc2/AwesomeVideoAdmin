@@ -1,23 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.lin.dao.UserReportMapperCustom" >
+<mapper namespace="com.lin.dao.UserReportMapperCustom">
 
-  <select id="selectAllVideoReport" resultType="com.lin.model.vo.Reports">
-      select
-            ur.id as id,
-            ur.title as title,
-            ur.content as content,
-            ur.create_date as createDate,
-            du.username as dealUsername,
-            v.id as dealVideoId,
-            v.video_desc as videoDesc,
-            v.video_path as videoPath,
-            v.status as status,
-            u.username as submitUsername
-      from users_report ur
-            left join users du on ur.deal_user_id = du.id
-            left join videos v on ur.deal_video_id = v.id
-            left join users u on ur.userid = u.id
-      order by ur.create_date desc
-  </select>
+    <select id="selectAllVideoReport" resultType="com.lin.model.vo.Reports">
+        select ur.id          as id,
+               ur.title       as title,
+               ur.content     as content,
+               ur.create_date as createDate,
+               du.username    as dealUsername,
+               v.id           as dealVideoId,
+               v.video_desc   as videoDesc,
+               v.video_path   as videoPath,
+               v.status       as status,
+               u.username     as submitUsername
+        from users_report ur
+                 left join users du on ur.deal_user_id = du.id
+                 left join videos v on ur.deal_video_id = v.id
+                 left join users u on ur.userid = u.id
+        order by ur.create_date desc
+    </select>
+
+    <select id="selectAllVideo" resultType="com.lin.model.vo.VideoVo">
+        select v.id            as id,
+               u.username      as userName,
+               v.video_desc    as videoDesc,
+               v.video_path    as videoPath,
+               v.video_seconds as videoSeconds,
+               v.video_width   as videoWidth,
+               v.video_height  as videoHeight,
+               v.cover_path    as coverPath,
+               v.like_counts   as likeCount,
+               v.status        as status,
+               v.create_time   as createTime
+        from videos v
+                 left join users u on v.user_id = u.id
+        order by v.create_time desc
+    </select>
+
 </mapper>
