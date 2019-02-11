@@ -15,7 +15,6 @@ public class IndexController {
     @GetMapping("index")
     public String index(Model model) {
         model.addAttribute("name", "andy");
-        System.out.println("1111111111111");
         // 跳转到控制中心页
         return "index";
     }

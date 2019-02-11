@@ -22,12 +22,32 @@ import java.util.UUID;
 @RequestMapping("/user")
 public class UserController {
 
+    /**
+     * 跳转到用户列表页
+     * @return 用户用列表页路径
+     */
+    @GetMapping("/showList")
+    public String showList() {
+        return "user/userList";
+    }
+
+    /**
+     * 跳转到登录页
+     * @return 登录页路径
+     */
     @GetMapping("/login")
     public String login() {
-        // 跳转到登录页
         return "login";
     }
 
+    /**
+     * 用户登陆
+     * @param username 用户名
+     * @param password 密码
+     * @param request 请求
+     * @param response 响应
+     * @return 是否登陆成功
+     */
     @PostMapping("/login")
     @ResponseBody
     public JsonResult userLogin(String username, String password,
@@ -46,6 +66,12 @@ public class UserController {
         return JsonResult.ok();
     }
 
+    /**
+     * 退出用户登陆
+     * @param request 请求
+     * @param response 响应
+     * @return 重定向到登录页
+     */
     @GetMapping("/logout")
     public String logout(HttpServletRequest request, HttpServletResponse response) {
         // 移除session中的用户信息，跳转到登录页
