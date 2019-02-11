@@ -1,40 +1,38 @@
-var forbidVideo = function(videoId) {
-	
-	var flag = window.confirm("是否禁播");
-	if (!flag) {
-		return;
-	}
-	
-	$.ajax({
-    	url: $("#hdnContextPath").val() + "/video/forbidVideo.action?videoId=" + videoId,
-    	type: "POST",
-    	async: false,
-    	success: function(data) {
-            if(data.status == 200 && data.msg == "OK") {
-            	alert("操作成功");
-            	var jqGrid = $("#usersReportsList");  
-				jqGrid.jqGrid().trigger("reloadGrid");
+// 禁播视频
+var forbidVideo = function (videoId) {
+    var flag = window.confirm("是否禁播");
+    if (!flag) {
+        return;
+    }
+
+    $.ajax({
+        url: $("#hdnContextPath").val() + "/video/forbidVideo=?videoId=" + videoId,
+        type: "POST",
+        async: false,
+        success: function (data) {
+            if (data.status === 200 && data.msg === "OK") {
+                alert("操作成功");
+                var jqGrid = $("#usersReportsList");
+                jqGrid.jqGrid().trigger("reloadGrid");
             } else {
-            	console.log(JSON.stringify(data));
+                console.log(JSON.stringify(data));
             }
-    	}
-	})
-}
+        }
+    })
+};
 
 // 定义举报列表对象
 var UsersReportsList = function () {
-	
     // 举报列表
 	var handleUsersReportsList = function() {
-    	
 		// 上下文对象路径
 		var hdnContextPath = $("#hdnContextPath").val();
 		var apiServer = $("#apiServer").val();
-		debugger;
+
 		var jqGrid = $("#usersReportsList");  
         jqGrid.jqGrid({  
             caption: "被举报的视频列表",  
-            url: hdnContextPath + "/video/reportList.action",  
+            url: hdnContextPath + "/video/reportList",
             mtype: "post",  
             styleUI: 'Bootstrap',//设置jqgrid的全局样式为bootstrap样式  
             datatype: "json",  
@@ -48,13 +46,13 @@ var UsersReportsList = function () {
                 { name: 'videoPath', index: 'videoPath', width: 30, sortable: false,
                 	formatter:function(cellvalue, options, rowObject) {
                 		var src = apiServer + cellvalue;
-                		var display = "<a href='" + src + "' target='_blank'>点我播放</a>"
+                		var display = "<a href='" + src + "' target='_blank'>点我播放</a>";
 			    		return display;
 			    	}
                 },
                 { name: 'status', index: 'status', width: 40, sortable: false, hidden: false,
                 	formatter:function(cellvalue, options, rowObject) {
-			    		return cellvalue==1 ? '正常' : '禁播';
+			    		return cellvalue === 1 ? '正常' : '禁播';
 			    	}
 			    },
                 { name: 'submitUsername', index: 'submitUsername', width: 20, sortable: false },
@@ -85,8 +83,7 @@ var UsersReportsList = function () {
             del: false,
             search: false
         });
-        
-  
+
         // 随着窗口的变化，设置jqgrid的宽度  
         $(window).bind('resize', function () {  
             var width = $('.usersReportsList_wrapper').width()*0.99;  
@@ -95,19 +92,17 @@ var UsersReportsList = function () {
         
         // 不显示水平滚动条
         jqGrid.closest(".ui-jqgrid-bdiv").css({ "overflow-x" : "hidden" });
-    }
+    };
     
     return {
         // 初始化各个函数及对象
-        init: function () {debugger;
+        init: function () {
         	handleUsersReportsList();
         }
-
     };
-
 }();
 
 
-jQuery(document).ready(function() {debugger;
+jQuery(document).ready(function() {
 	UsersReportsList.init();
 });

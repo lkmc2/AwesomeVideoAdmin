@@ -15,46 +15,4 @@
     <result column="receive_like_counts" property="receiveLikeCounts" jdbcType="INTEGER" />
   </resultMap>
 
-  <!--增加用户受喜欢数-->
-  <update id="addReceiveLikeCount" parameterType="string">
-      update users
-      set receive_like_counts = receive_like_counts + 1
-      where id = #{videoCreatorId}
-  </update>
-
-  <!--减少用户受喜欢数-->
-  <update id="reduceReceiveLikeCount" parameterType="string">
-    update users
-    set receive_like_counts = receive_like_counts - 1
-    where id = #{videoCreatorId}
-  </update>
-
-  <!--添加粉丝数-->
-  <update id="addFansCount" parameterType="string">
-    update users
-    set fans_counts = fans_counts + 1
-    where id = #{userId}
-  </update>
-
-  <!--减少粉丝数-->
-  <delete id="reduceFansCount" parameterType="string">
-    update users
-    set fans_counts = fans_counts - 1
-    where id = #{userId}
-  </delete>
-
-  <!--添加关注人数-->
-  <update id="addFollowersCount" parameterType="string">
-    update users
-    set follow_counts = follow_counts + 1
-    where id = #{userId}
-  </update>
-
-  <!--减少关注人数-->
-  <delete id="reduceFollowersCount" parameterType="string">
-    update users
-    set follow_counts = follow_counts - 1
-    where id = #{userId}
-  </delete>
-
 </mapper>

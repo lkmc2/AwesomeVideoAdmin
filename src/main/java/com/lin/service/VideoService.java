@@ -28,4 +28,12 @@ public interface VideoService {
      * @param bgmId 背景乐id
      */
     void delBgm(String bgmId);
+
+    /**
+     * 分页查询举报视频列表
+     * @param page 当前页数
+     * @param pageSize 每页条数
+     * @return 分页结果
+     */
+    PagedResult queryReportList(Integer page, int pageSize);
 }

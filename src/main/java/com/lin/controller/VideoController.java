@@ -32,6 +32,26 @@ public class VideoController {
     private VideoService videoService;
 
     /**
+     * 跳转到视频举报列表页面
+     * @return 视频举报列表页面路径
+     */
+    @GetMapping("/showReportList")
+    public String showReportList() {
+        return "video/reportList";
+    }
+
+    /**
+     * 分页查询举报视频列表
+     * @param page 当前页数
+     * @return 举报视频列表
+     */
+    @PostMapping("/reportList")
+    @ResponseBody
+    public PagedResult reportList(Integer page) {
+        return videoService.queryReportList(page, 10);
+    }
+
+    /**
      * 跳转到背景乐列表页面
      * @return 背景乐列表页面路径
      */

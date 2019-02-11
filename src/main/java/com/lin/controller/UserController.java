@@ -1,8 +1,12 @@
 package com.lin.controller;
 
+import com.lin.model.User;
+import com.lin.service.UserService;
 import com.lin.utils.AdminUser;
 import com.lin.utils.JsonResult;
+import com.lin.utils.PagedResult;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,13 +26,28 @@ import java.util.UUID;
 @RequestMapping("/user")
 public class UserController {
 
+    @Autowired
+    private UserService userService;
+
     /**
      * 跳转到用户列表页
-     * @return 用户用列表页路径
+     * @return 用户列表页路径
      */
     @GetMapping("/showList")
     public String showList() {
         return "user/userList";
+    }
+
+    /**
+     * 根据条件查询用户列表
+     * @param user 用户信息
+     * @param page 当前页数
+     * @return 用户列表分页结果
+     */
+    @PostMapping("/list")
+    @ResponseBody
+    public PagedResult list(User user, Integer page) {
+        return userService.queryUserList(user, (page == null ? 1 : page), 10);
     }
 
     /**

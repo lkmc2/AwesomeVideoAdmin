@@ -61,7 +61,7 @@ var List = function () {
             var searchUsersListForm = $("#searchUserListForm");
             jqGrid.jqGrid().setGridParam({
                 page: 1,
-                url: hdnContextPath + "/users/list?" + searchUsersListForm.serialize()
+                url: hdnContextPath + "/user/list?" + searchUsersListForm.serialize()
             }).trigger("reloadGrid");
         });
     };
