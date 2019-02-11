@@ -1,3 +1,4 @@
+// 删除背景乐
 var deleteBgm = function (bgmId) {
     var flag = window.confirm("是否确认删除？？？");
     if (!flag) {

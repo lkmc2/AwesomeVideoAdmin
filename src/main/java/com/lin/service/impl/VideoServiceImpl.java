@@ -58,4 +58,10 @@ public class VideoServiceImpl implements VideoService {
         return pagedResult;
     }
 
+    @Override
+    public void delBgm(String bgmId) {
+        // 根据主键删除背景乐
+        bgmMapper.deleteByPrimaryKey(bgmId);
+    }
+
 }

@@ -63,6 +63,17 @@ public class VideoController {
     }
 
     /**
+     * 删除背景乐
+     * @return 背景乐id
+     */
+    @PostMapping("/delBgm")
+    @ResponseBody
+    public JsonResult delBgm(String bgmId) {
+        videoService.delBgm(bgmId);
+        return JsonResult.ok();
+    }
+
+    /**
      * 分页查询背景乐列表
      * @param page 当前页
      * @return 带背景乐列表的json结果

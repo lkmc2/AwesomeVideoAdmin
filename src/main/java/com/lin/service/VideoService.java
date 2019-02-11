@@ -22,4 +22,10 @@ public interface VideoService {
      * @return 分页结果
      */
     PagedResult queryBgmList(Integer page, Integer pageSize);
+
+    /**
+     * 删除背景乐
+     * @param bgmId 背景乐id
+     */
+    void delBgm(String bgmId);
 }
