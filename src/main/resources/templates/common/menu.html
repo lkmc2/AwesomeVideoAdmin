@@ -22,7 +22,7 @@
 
                 <!-- 控制台  start -->
                 <li class="nav-item">
-                    <a href="">
+                    <a th:href="${#httpServletRequest.getContextPath()} + '/index'">
                         <i class="icon-home"></i>
                         <span class="title">首页</span>
                     </a>
@@ -58,7 +58,7 @@
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a href="" class="ajaxify nav-link ">
+                            <a th:href="${#httpServletRequest.getContextPath()} + '/video/showAddBgm'" class="ajaxify nav-link ">
                                 <span class="title">添加bgm</span>
                             </a>
                         </li>
