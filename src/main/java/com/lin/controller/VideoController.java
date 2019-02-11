@@ -3,6 +3,7 @@ package com.lin.controller;
 import com.lin.model.Bgm;
 import com.lin.service.VideoService;
 import com.lin.utils.JsonResult;
+import com.lin.utils.PagedResult;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,18 +31,47 @@ public class VideoController {
     @Autowired
     private VideoService videoService;
 
+    /**
+     * 跳转到背景乐列表页面
+     * @return 背景乐列表页面路径
+     */
+    @GetMapping("/showBgmList")
+    public String showBgmList() {
+        return "video/bgmList";
+    }
+
+    /**
+     * 跳转到添加背景乐页面
+     * @return 背景乐页面路径
+     */
     @GetMapping("/showAddBgm")
     public String showAddBgm() {
-        // 跳转到添加背景乐页面
         return "video/addBgm";
     }
 
+    /**
+     * 添加背景乐
+     * @param bgm 背景乐
+     * @return 是否添加成功
+     */
     @PostMapping("/addBgm")
     @ResponseBody
     public JsonResult addBgm(Bgm bgm) {
         // 添加背景乐到数据库
         videoService.addBgm(bgm);
         return JsonResult.ok();
+    }
+
+    /**
+     * 分页查询背景乐列表
+     * @param page 当前页
+     * @return 带背景乐列表的json结果
+     */
+    @PostMapping("/queryBgmList")
+    @ResponseBody
+    public PagedResult queryBgmList(Integer page) {
+        // 分页查询背景乐列表并返回
+        return videoService.queryBgmList(page, 10);
     }
 
     /**
