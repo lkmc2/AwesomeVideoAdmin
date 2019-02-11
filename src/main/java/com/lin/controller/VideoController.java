@@ -1,5 +1,6 @@
 package com.lin.controller;
 
+import com.lin.enums.VideoStatusEnum;
 import com.lin.model.Bgm;
 import com.lin.service.VideoService;
 import com.lin.utils.JsonResult;
@@ -49,6 +50,18 @@ public class VideoController {
     @ResponseBody
     public PagedResult reportList(Integer page) {
         return videoService.queryReportList(page, 10);
+    }
+
+    /**
+     * 禁播视频
+     * @param videoId 视频id
+     * @return 禁播视频成功
+     */
+    @PostMapping("/forbidVideo")
+    @ResponseBody
+    public JsonResult forbidVideo(String videoId) {
+        videoService.updateVideoStatus(videoId, VideoStatusEnum.FORBID.getValue());
+        return JsonResult.ok();
     }
 
     /**

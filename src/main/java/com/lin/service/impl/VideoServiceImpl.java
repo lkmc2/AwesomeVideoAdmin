@@ -5,8 +5,10 @@ import com.github.pagehelper.PageInfo;
 import com.lin.dao.BgmMapper;
 import com.lin.dao.UserReportMapper;
 import com.lin.dao.UserReportMapperCustom;
+import com.lin.dao.VideoMapper;
 import com.lin.model.Bgm;
 import com.lin.model.UserReport;
+import com.lin.model.Video;
 import com.lin.model.vo.Reports;
 import com.lin.service.VideoService;
 import com.lin.utils.PagedResult;
@@ -30,6 +32,9 @@ public class VideoServiceImpl implements VideoService {
 
     @Autowired
     private UserReportMapperCustom userReportMapperCustom;
+
+    @Autowired
+    private VideoMapper videoMapper;
 
     @Autowired
     private Sid sid;
@@ -89,6 +94,16 @@ public class VideoServiceImpl implements VideoService {
         pagedResult.setRecords(pageInfo.getTotal()); // 总记录数
         pagedResult.setPage(page); // 当前页数
         return pagedResult;
+    }
+
+    @Override
+    public void updateVideoStatus(String videoId, Integer status) {
+        Video video = new Video();
+        video.setId(videoId);
+        video.setStatus(status);
+
+        // 根据id选择性更新视频状态
+        videoMapper.updateByPrimaryKeySelective(video);
     }
 
 }

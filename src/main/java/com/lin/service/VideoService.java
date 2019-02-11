@@ -36,4 +36,11 @@ public interface VideoService {
      * @return 分页结果
      */
     PagedResult queryReportList(Integer page, int pageSize);
+
+    /**
+     * 更新视频状态
+     * @param videoId 视频id
+     * @param status 视频状态
+     */
+    void updateVideoStatus(String videoId, Integer status);
 }

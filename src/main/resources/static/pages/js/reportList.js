@@ -6,7 +6,7 @@ var forbidVideo = function (videoId) {
     }
 
     $.ajax({
-        url: $("#hdnContextPath").val() + "/video/forbidVideo=?videoId=" + videoId,
+        url: $("#hdnContextPath").val() + "/video/forbidVideo?videoId=" + videoId,
         type: "POST",
         async: false,
         success: function (data) {
