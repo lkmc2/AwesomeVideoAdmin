@@ -74,7 +74,7 @@ public class UserController {
         if (StringUtils.isBlank(username) || StringUtils.isBlank(password)) {
             return JsonResult.errorMsg("用户名和密码不能为空");
         }
-        if (!"admin".equals(username) || !"Welcome.01".equals(password)) {
+        if (!"admin".equals(username) || !"123456".equals(password)) {
             return JsonResult.errorMsg("用户名或密码错误");
         }
 

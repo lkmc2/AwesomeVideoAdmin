@@ -8,6 +8,8 @@ import com.lin.service.UserService;
 import com.lin.utils.PagedResult;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
@@ -19,12 +21,14 @@ import java.util.List;
  * @description 用户服务
  */
 @Service
+@CacheConfig(cacheNames = {"UserServiceImpl"})
 public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;
 
     @Override
+    @Cacheable(key = "targetClass + methodName + #p0.username + #p0.nickname + #p1 + #p2")
     public PagedResult queryUserList(User user, Integer page, Integer pageSize) {
         String username = "";
         String nickname = "";

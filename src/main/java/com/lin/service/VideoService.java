@@ -35,7 +35,7 @@ public interface VideoService {
      * @param pageSize 每页条数
      * @return 分页结果
      */
-    PagedResult queryReportList(Integer page, int pageSize);
+    PagedResult queryReportList(Integer page, Integer pageSize);
 
     /**
      * 更新视频状态
@@ -50,7 +50,7 @@ public interface VideoService {
      * @param pageSize 每页条数
      * @return 分页结果
      */
-    PagedResult queryVideoList(Integer page, int pageSize);
+    PagedResult queryVideoList(Integer page, Integer pageSize);
 
     /**
      * 删除视频
