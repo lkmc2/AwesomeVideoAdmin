@@ -1,14 +1,26 @@
 # AwesomeVideoAdmin
-倾心短视频小程序的后台管理系统
+基于Spring Boot的《倾心短视频》小程序的**后台管理系统**
 
-**项目使用的技术**：
+## 项目使用的技术
 
 - 框架：Spring Boot 2.0.5.RELEASE、Mybatis
 - 模板：Thymeleaf
 - 数据库：MySQL
 - 插件：Druid连接池、Mybatis Generator、通用Mapper、PageHelper分页插件、Lombok、Spring Boot Devtools热部署
 
-**项目运行方式**：
+
+
+## 配套项目
+
+本**后台管理系统**项目需要与以下两个项目配套使用。
+
+<a href="https://github.com/lkmc2/AwesomeVideoWxApp">《倾心短视频》微信小程序</a>
+
+<a href="https://github.com/lkmc2/AwesomeVideo">后端API服务</a>
+
+
+
+## 项目运行方式
 
 1. 创建数据库awesome_video。
 2. 在数据库中运行src/main/resources下的awesome_video.sql文件。
