@@ -1,14 +1,20 @@
 # AwesomeVideoAdmin
 基于Spring Boot的《倾心短视频》小程序的**后台管理系统**
 
+## 项目功能
+
+- 管理用户账号
+- 管理短视频
+- 管理背景乐
+- 审核举报信息
+
 ## 项目使用的技术
 
 - 框架：Spring Boot 2.0.5.RELEASE、Mybatis
 - 模板：Thymeleaf
-- 数据库：MySQL
+- 数据库：MySQL、Redi
+- 缓存：Spring Cache
 - 插件：Druid连接池、Mybatis Generator、通用Mapper、PageHelper分页插件、Lombok、Spring Boot Devtools热部署
-
-
 
 ## 配套项目
 
