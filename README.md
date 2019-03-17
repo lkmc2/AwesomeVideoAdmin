@@ -12,7 +12,7 @@
 
 - 框架：Spring Boot 2.0.5.RELEASE、Mybatis
 - 模板：Thymeleaf
-- 数据库：MySQL、Redi
+- 数据库：MySQL、Redis
 - 缓存：Spring Cache
 - 插件：Druid连接池、Mybatis Generator、通用Mapper、PageHelper分页插件、Lombok、Spring Boot Devtools热部署
 
