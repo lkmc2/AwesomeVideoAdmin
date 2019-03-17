@@ -1,5 +1,6 @@
 package com.lin.utils;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -7,7 +8,7 @@ import java.util.List;
  * @date 2019/2/2
  * @description 封装分页后的数据格式
  */
-public class PagedResult {
+public class PagedResult implements Serializable {
     private int page; // 当前页数
     private int total; // 总页数
     private long records; // 总记录数
